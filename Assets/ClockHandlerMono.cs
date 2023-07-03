@@ -31,7 +31,11 @@ public class ClockHandlerMono : MonoBehaviour
         _timeLeftPlayerTwo = minutes*60;
         UpdateTimersText();
     }
-
+    private void OnEnable()
+    {
+        _timeLeftPlayerOneButton.gameObject.SetActive(true);
+        _timeLeftPlayerTwoButton.gameObject.SetActive(true);
+    }
     private void UpdateTimersText()
     {
         _timeLeftPlayerOneTMP.text = TimeSpan.FromSeconds(_timeLeftPlayerOne).Minutes.ToString("00")+":"+TimeSpan.FromSeconds(_timeLeftPlayerOne).Seconds.ToString("00")+":"+TimeSpan.FromSeconds(_timeLeftPlayerOne).Milliseconds.ToString("000");
@@ -61,8 +65,8 @@ public class ClockHandlerMono : MonoBehaviour
 
     private void DisableClockButtons()
     {
-        _timeLeftPlayerOneButton.enabled = false;
-        _timeLeftPlayerTwoButton.enabled = false;
+        _timeLeftPlayerOneButton.gameObject.SetActive(false);
+        _timeLeftPlayerTwoButton.gameObject.SetActive(false);
     }
 
     private void CapPlayersTimeToMinimumZero()
@@ -116,14 +120,14 @@ public class ClockHandlerMono : MonoBehaviour
 
     private void EnablePlayerOneButton()
     {
-        _timeLeftPlayerOneButton.enabled = true;
-        _timeLeftPlayerTwoButton.enabled = false;
+        _timeLeftPlayerOneButton.gameObject.SetActive(true);
+        _timeLeftPlayerTwoButton.gameObject.SetActive(false);
     }
 
     private void EnablePlayerTwoButton()
     {
-        _timeLeftPlayerOneButton.enabled = false;
-        _timeLeftPlayerTwoButton.enabled = true;
+        _timeLeftPlayerOneButton.gameObject.SetActive(false);
+        _timeLeftPlayerTwoButton.gameObject.SetActive(true);
     }
 
     public void GotoSettings()
