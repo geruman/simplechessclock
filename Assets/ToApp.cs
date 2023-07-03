@@ -16,7 +16,7 @@ public class ToApp : MonoBehaviour
         timer += Time.deltaTime;
 
         // Verificar si ha pasado el tiempo deseado y la escena no ha sido cargada aún
-        if (timer >= 10f && !sceneLoaded)
+        if (timer >= 7f && !sceneLoaded)
         {
             // Cargar la escena
             SceneManager.LoadScene(1);
